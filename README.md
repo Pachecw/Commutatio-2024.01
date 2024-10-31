@@ -1,7 +1,7 @@
 COMMUTATIO<br/>
 Desenvolvimento agil-2024.02
 
-Eduardo Carbonês Porfírio - 2525399 - <br/>
+Eduardo Carbonês Porfírio - 2525399 - https://github.com/GarrafaStanley<br/>
 Gustavo Oliveira Pacheco Rocha - 2525453 - https://github.com/Pachecw<br/>
 João Gabriel Borges Monteiro - 2475464 - https://github.com/joaomont2004
 
