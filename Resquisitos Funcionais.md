@@ -9,8 +9,6 @@
 | RF03 |     O sistema deve mostrar o valor convertido.                       |  Média    |     -       |
 | RF04 |     O sistema deve permitir que o usuário insira um valor em uma moeda de referência.                             |      Média      |             |
 | RF05 |     O sistema deve checar as cotaçôes de câmbio das principais moedas do dia.           |      Alta      |             |
-| RF06 |              |            |             |
-
 
 <div style="text-align: center">
 <p>Tabela 1: Requisitos Funcionais</p>
