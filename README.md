@@ -10,12 +10,8 @@ O objetivo do projeto é desenvolver um software que facilite a troca de moedas 
 Principais Funcionalidades:<br/>
 Conversão de Moedas<br/>
 Atualização em Tempo Real<br/>
-Histórico de Taxas<br/>
 Alertas de Taxas<br/>
-Segurança em Transações<br/>
-Suporte a Múltiplas Moedas<br/>
 Interface Intuitiva<br/>
-Relatórios e Análises<br/>
 <br/>
 Público-Alvo:<br/>
 Turistas<br/>
