@@ -1,4 +1,4 @@
-#3. Histórias de Usuários
+# 3. Histórias de Usuários
 
 <p align="justify">A <i>Tabela 3</i> a seguir contém as Histórias de Usuários elicitados utizando a técnica de Brainstorm.</p>
 
