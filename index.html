@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moedas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        select, input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Commutatio</h1>
+        <p>Selecione as moedas e insira o valor:</p>
+        
+        <select id="moedaOrigem">
+            <option value="BRL">Real (BRL)</option>
+            <option value="USD">Dólar Americano (USD)</option>
+            <option value="EUR">Euro (EUR)</option>
+            <option value="JPY">Iene Japonês (JPY)</option>
+            <option value="GBP">Libra Esterlina (GBP)</option>
+            <option value="CAD">Dólar Canadense (CAD)</option>
+            <option value="AUD">Dólar Australiano (AUD)</option>
+            <option value="CHF">Franco Suíço (CHF)</option>
+            <option value="CNY">Yuan Chinês (CNY)</option>
+            <option value="INR">Rupia Indiana (INR)</option>
+        </select>
+
+        <select id="moedaDestino">
+            <option value="BRL">Real (BRL)</option>
+            <option value="USD">Dólar Americano (USD)</option>
+            <option value="EUR">Euro (EUR)</option>
+            <option value="JPY">Iene Japonês (JPY)</option>
+            <option value="GBP">Libra Esterlina (GBP)</option>
+            <option value="CAD">Dólar Canadense (CAD)</option>
+            <option value="AUD">Dólar Australiano (AUD)</option>
+            <option value="CHF">Franco Suíço (CHF)</option>
+            <option value="CNY">Yuan Chinês (CNY)</option>
+            <option value="INR">Rupia Indiana (INR)</option>
+        </select>
+
+        <input type="number" id="valor" placeholder="Digite o valor" />
+
+        <button onclick="converter()">Converter</button>
+
+        <div class="result" id="resultado"></div>
+    </div>
+
+    <script>
+        async function converter() {
+            const moedaOrigem = document.getElementById('moedaOrigem').value;
+            const moedaDestino = document.getElementById('moedaDestino').value;
+            const valor = parseFloat(document.getElementById('valor').value);
+
+            if (isNaN(valor) || valor <= 0) {
+                document.getElementById('resultado').innerText = 'Por favor, insira um valor válido.';
+                return;
+            }
+
+            try {
+                const apiUrl = `https://api.exchangerate-api.com/v4/latest/${moedaOrigem}`;
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                const taxa = data.rates[moedaDestino];
+
+                if (!taxa) {
+                    document.getElementById('resultado').innerText = 'Erro ao obter a taxa de câmbio.';
+                    return;
+                }
+
+                const resultado = valor * taxa;
+                document.getElementById('resultado').innerText = 
+                    `${valor.toFixed(2)} ${moedaOrigem} é equivalente a ${resultado.toFixed(2)} ${moedaDestino}.`;
+
+            } catch (error) {
+                document.getElementById('resultado').innerText = 
+                    'Erro ao conectar à API. Tente novamente mais tarde.';
+                console.error(error);
+            }
+        }
+    </script>
+</body>
+</html>
