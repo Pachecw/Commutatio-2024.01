@@ -25,7 +25,7 @@
 
         select, input, button {
             width: 100%;
-            padding: 10px 0;
+            padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -47,7 +47,8 @@
             font-size: 1.2em;
             font-weight: bold;
         }
-        .fatos-box{
+
+        .fact-box {
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -55,7 +56,7 @@
             border: 1px solid #ccc;
             padding: 15px;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             max-width: 300px;
             font-size: 0.9em;
         }
@@ -66,7 +67,7 @@
         <h1>Commutatio</h1>
         <p>Selecione as moedas e insira o valor:</p>
         
-        <select id="moedaOrigem" onchange="mostrarfato('moedaOrigem')">
+        <select id="moedaOrigem" onchange="mostrarFato('moedaOrigem')">
             <option value="BRL">Real (BRL)</option>
             <option value="USD">Dólar Americano (USD)</option>
             <option value="EUR">Euro (EUR)</option>
@@ -79,7 +80,7 @@
             <option value="INR">Rupia Indiana (INR)</option>
         </select>
 
-        <select id="moedaDestino" onchange="mostrarfato('moedaDestino')">
+        <select id="moedaDestino" onchange="mostrarFato('moedaDestino')">
             <option value="BRL">Real (BRL)</option>
             <option value="USD">Dólar Americano (USD)</option>
             <option value="EUR">Euro (EUR)</option>
@@ -99,7 +100,7 @@
         <div class="result" id="resultado"></div>
     </div>
 
-        <div class="fato-box" id="fatoBox"></div>
+    <div class="fact-box" id="factBox"></div>
 
     <script>
         const fatosMoedas = {
@@ -115,12 +116,13 @@
             INR: "A Rupia Indiana é uma das moedas mais antigas do mundo, com raízes que remontam ao século VI a.C."
         };
 
-        function mostrarfato(selectid){
-            const moeda = document.getElementById(selectid).value;
+        function mostrarFato(selectId) {
+            const moeda = document.getElementById(selectId).value;
             const fato = fatosMoedas[moeda];
-            const fatoBox = document.getElementById('fatoBox');
-            fatoBox.innerText = fato;
+            const factBox = document.getElementById('factBox');
+            factBox.innerText = fato;
         }
+
         async function converter() {
             const moedaOrigem = document.getElementById('moedaOrigem').value;
             const moedaDestino = document.getElementById('moedaDestino').value;
@@ -146,7 +148,6 @@
                 const resultado = valor * taxa;
                 document.getElementById('resultado').innerText = 
                     `${valor.toFixed(2)} ${moedaOrigem} é equivalente a ${resultado.toFixed(2)} ${moedaDestino}.`;
-
             } catch (error) {
                 document.getElementById('resultado').innerText = 
                     'Erro ao conectar à API. Tente novamente mais tarde.';
