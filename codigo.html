@@ -10,15 +10,26 @@
             text-align: center;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            background: url('/assets/background.jpg') no-repeat center center fixed;
+            background-size: cover;
             color: #333;
         }
 
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100px; /* Tamanho padrão para desktop */
+            height: 100px; /* Tamanho padrão para desktop */
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
         .container {
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            background: #fff;
+            max-width: 400px; /* Largura padrão para desktop */
+            margin: 50px auto; /* Margem padrão para desktop */
+            padding: 20px; /* Padding padrão para desktop */
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
@@ -50,19 +61,46 @@
 
         .fact-box {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 20px; /* Posição padrão para desktop */
+            right: 20px; /* Posição padrão para desktop */
             background: #fff;
             border: 1px solid #ccc;
-            padding: 15px;
+            padding: 15px; /* Padding padrão para desktop */
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            max-width: 300px;
+            max-width: 300px; /* Largura padrão para desktop */
             font-size: 0.9em;
+        }
+
+        /* Media Queries para dispositivos móveis */
+        @media (max-width: 600px) {
+            .logo {
+                width: 60px; /* Reduzido para dispositivos móveis */
+                height: 60px; /* Reduzido para dispositivos móveis */
+            }
+
+            .container {
+                max-width: 90%; /* Ajustado para dispositivos móveis */
+                margin: 20px auto; /* Reduzido o margin para dispositivos móveis */
+                padding: 15px; /* Reduzido o padding para dispositivos móveis */
+            }
+
+            h1 {
+                font-size: 1.5em; /* Reduzido o tamanho da fonte do título */
+            }
+
+            .fact-box {
+                bottom: 10px; /* Ajustado para dispositivos móveis */
+                right: 10px; /* Ajustado para dispositivos móveis */
+                padding: 10px; /* Reduzido o padding para dispositivos móveis */
+                max-width: 90%; /* Ajustado para dispositivos móveis */
+                font-size: 0.8em; /* Reduzido o tamanho da fonte do fact-box */
+            }
         }
     </style>
 </head>
 <body>
+    <img src="assets/logo.jpg" alt="Logo" class="logo">
     <div class="container">
         <h1>Commutatio</h1>
         <p>Selecione as moedas e insira o valor:</p>
